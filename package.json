@@ -1,0 +1,33 @@
+{
+  "name": "codelsoft-users",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "seed": "node src/database/seeders/seeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codelsoft-Microservices/codelsoft-users.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@grpc/grpc-js": "^1.13.2",
+    "bcryptjs": "^3.0.2",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.16.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  }
+}
