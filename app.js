@@ -24,7 +24,7 @@ const server = new Server();
 connectDB().then(() => console.log("✓ Conexión a base de datos exitosa"));
 
 const usersProto = loadProto("users");
-server.addService(usersProto.Users.service, usersService);
+server.addService(usersProto.UsersService.service, usersService);
 
 server.bindAsync(
   `${process.env.SERVER_URL}:${process.env.PORT || 3000}`,

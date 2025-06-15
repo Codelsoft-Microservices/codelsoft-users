@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package users;
 
-service Users {
+service UsersService {
   rpc GetAllUsers(Empty) returns (GetAllUsersResponse);
   rpc GetUserByUUID(GetUserByUUIDRequest) returns (GetUserByUUIDResponse);
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
