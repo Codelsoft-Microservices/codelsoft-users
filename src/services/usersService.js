@@ -2,7 +2,6 @@ import { status } from "@grpc/grpc-js";
 import catchAsync from "../utils/catchAsync.js";
 import { getCollection, createDocument, getDocument, updateDocument} from "../utils/mongoORM.js";
 import bcrypt from "bcryptjs";
-import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 
 const GetAllUsers = catchAsync(async (call, callback) => {
@@ -100,8 +99,8 @@ const CreateUser = catchAsync(async (call, callback) => {
         password: hashedPassword,
         role: role,
         isActive: true,
-        createdAt: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-        updatedAt: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         uuid: uuidv4(),
     };
 
@@ -156,7 +155,7 @@ const UpdateUser = catchAsync(async (call, callback) => {
         name: name,
         lastname: lastname,
         email: email,
-        updatedAt: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+        updatedAt: new Date().toISOString(),
     };
 
     const result = await updateDocument("USERS", { uuid: uuid }, updatedUser);
@@ -199,7 +198,7 @@ const DeleteUser = catchAsync(async (call, callback) => {
 
     // Marcar al usuario como inactivo en lugar de eliminarlo
     existingUser.isActive = false;
-    existingUser.updatedAt = dayjs().format("YYYY-MM-DD HH:mm:ss");
+    existingUser.updatedAt = new Date().toISOString();
     
     const result = await updateDocument("USERS", { uuid: uuid }, existingUser);
     if (!result) {
