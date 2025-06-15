@@ -2,7 +2,6 @@ import { status } from "@grpc/grpc-js";
 import catchAsync from "../utils/catchAsync.js";
 import { getCollection, createDocument, getDocument, updateDocument} from "../utils/mongoORM.js";
 import bcrypt from "bcryptjs";
-import { v4 as uuidv4 } from "uuid";
 
 const GetAllUsers = catchAsync(async (call, callback) => {
 
@@ -63,7 +62,7 @@ const GetUserByUUID = catchAsync(async (call, callback) => {
 });
 
 const CreateUser = catchAsync(async (call, callback) => {
-   const { name, lastname, email, password, passwordConfirm, role} = call.request;
+   const {uuid, name, lastname, email, password, passwordConfirm, role} = call.request;
 
     if (password !== passwordConfirm) {
         return callback({
@@ -101,7 +100,7 @@ const CreateUser = catchAsync(async (call, callback) => {
         isActive: true,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        uuid: uuidv4(),
+        uuid: uuid,
     };
 
     const createdUser = await createDocument("USERS", newUser);

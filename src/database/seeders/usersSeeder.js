@@ -25,7 +25,7 @@ const seedUsersMock = async () => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(user.password, salt);
         const newUser = {
-            uuid: uuidv4(),
+            uuid: user.uuid,
             name: user.name,
             lastname: user.lastname,
             email: user.email,
