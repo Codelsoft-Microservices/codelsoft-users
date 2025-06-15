@@ -1,5 +1,5 @@
 # Codelsoft USERS Microservices
-Este repositorio contiene el codigo fuente para el servicio de autenticacion del sistema, a continuacion se encuentran los pasos para la instalacion de este.
+Este repositorio contiene el codigo fuente para el servicio de usuarios del sistema, a continuacion se encuentran los pasos para la instalacion de este.
 
 
 ## Pre-requisitos
