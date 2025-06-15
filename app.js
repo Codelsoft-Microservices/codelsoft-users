@@ -21,11 +21,6 @@ config({ path: "./.env" });
 
 const server = new Server();
 
-const DB = process.env.MONGO_DATABASE.replace(
-  "<PASSWORD>",
-  process.env.MONGO_PASSWORD
-).replace("<USER>", process.env.MONGO_USER);
-
 connectDB().then(() => console.log("✓ Conexión a base de datos exitosa"));
 
 const usersProto = loadProto("users");

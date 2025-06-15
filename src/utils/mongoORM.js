@@ -16,7 +16,7 @@ const dbName = process.env.DATABASE_NAME;
 const connectDB = async () => {
   try {
     await client.connect();
-    console.log('Conexion a base de datos PRODUCTS exitosa ✓');
+    console.log('Conexion a base de datos USERS exitosa ✓');
   } catch (error) {
     console.error('Connection error:', error);
     process.exit(1);
