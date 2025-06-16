@@ -113,12 +113,12 @@ const CreateUser = catchAsync(async (call, callback) => {
         });
     }
     const userResponse = {
-        uuid: createdUser.uuid,
-        name: createdUser.name,
-        lastname: createdUser.lastname,
-        email: createdUser.email,
-        role: createdUser.role,
-        createdAt: createdUser.createdAt,
+        uuid: newUser.uuid,
+        name: newUser.name,
+        lastname: newUser.lastname,
+        email: newUser.email,
+        role: newUser.role,
+        createdAt: newUser.createdAt,
     };
     return callback(null, {user: userResponse});
 });
