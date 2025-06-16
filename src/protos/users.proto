@@ -40,6 +40,7 @@ message CreateUserRequest {
   string password = 4;
   string passwordConfirm = 5;
   string role = 6;
+  string uuid = 7; // Optional, for updating existing users
 }
 
 message CreateUserResponse {

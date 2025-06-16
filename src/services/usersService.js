@@ -2,6 +2,7 @@ import { status } from "@grpc/grpc-js";
 import catchAsync from "../utils/catchAsync.js";
 import { getCollection, createDocument, getDocument, updateDocument} from "../utils/mongoORM.js";
 import bcrypt from "bcryptjs";
+import { ObjectId } from "mongodb";
 
 const GetAllUsers = catchAsync(async (call, callback) => {
 
@@ -103,7 +104,7 @@ const CreateUser = catchAsync(async (call, callback) => {
         uuid: uuid,
     };
 
-    const createdUser = await createDocument("USERS", newUser);
+    const createdUser = await createDocument(newUser, "USERS");
     
     if (!createdUser) {
         return callback({
