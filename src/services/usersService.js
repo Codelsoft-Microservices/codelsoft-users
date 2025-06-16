@@ -200,7 +200,7 @@ const DeleteUser = catchAsync(async (call, callback) => {
     existingUser.isActive = false;
     existingUser.updatedAt = new Date().toISOString();
     
-    const result = await updateDocument("USERS", { uuid: uuid }, existingUser);
+    const result = await updateDocument(existingUser, "USERS", { uuid: uuid }, );
     if (!result) {
         return callback({
             code: status.INTERNAL,
